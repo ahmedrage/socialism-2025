@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { NavBar } from '@/components/NavBar';
 import { createClient } from '@/lib/supabase/server';
@@ -56,59 +57,84 @@ export default async function HomePage() {
 
   if (!isReleased) {
     return (
-      <main className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        <h1 className="text-6xl sm:text-8xl font-black tracking-widest mb-4">
-          SOCIALISM 2026
-        </h1>
-        <p className="text-2xl sm:text-4xl text-gray-300 mb-12">Adelaide</p>
-        <p className="text-lg sm:text-2xl text-gray-400 mb-16">
-          Details &amp; Program Coming Soon
-        </p>
-        <a
-          href="https://www.trybooking.com/events"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xl sm:text-2xl font-extrabold px-8 py-4 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors"
-        >
-          GET TICKETS NOW
-        </a>
+      <main className="flex flex-col min-h-screen bg-brand-red-dark">
+        <div className="w-full max-w-[900px] self-center mt-3 sm:mt-4 shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
+          <Image
+            src="/images/hero-banner.png"
+            alt="Socialism 2026 Conference — 18-20 September, Adelaide"
+            width={1920}
+            height={1080}
+            priority
+            className="w-full h-auto block"
+          />
+        </div>
+
+        <h1 className="sr-only">Socialism 2026 Conference — Adelaide</h1>
+
+        <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 text-center gap-8">
+          <p className="text-brand-cream text-xl sm:text-3xl max-w-xl">
+            Details &amp; Program Coming Soon
+          </p>
+          <p className="text-brand-orange font-bold tracking-widest text-sm sm:text-base uppercase">
+            Lower Napier &middot; The University of Adelaide
+          </p>
+          <a
+            href="https://www.trybooking.com/events/landing/1576205"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl sm:text-2xl font-extrabold tracking-wider px-10 py-4 bg-brand-teal text-brand-cream hover:bg-black transition-colors"
+          >
+            GET TICKETS NOW
+          </a>
+        </div>
       </main>
     );
   }
 
   return (
-    <>
+    <main className="flex flex-col min-h-screen bg-brand-red-dark">
       <NavBar />
-      <main className="flex flex-col items-center px-6 py-16 text-center">
-        <h1 className="text-5xl sm:text-8xl font-black tracking-widest mb-4">
-          SOCIALISM 2026
-        </h1>
-        <p className="text-2xl sm:text-4xl text-gray-300 mb-6">Adelaide</p>
-        <p className="text-lg sm:text-2xl text-gray-400 mb-2">
-          Date TBC
-        </p>
-        <p className="text-lg sm:text-2xl text-gray-400 mb-16">
-          Venue TBC
+
+      <div className="w-full max-w-[900px] self-center mt-3 sm:mt-4 shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
+        <Image
+          src="/images/hero-banner.png"
+          alt="Socialism 2026 Conference — 18-20 September, Adelaide"
+          width={1920}
+          height={1080}
+          priority
+          className="w-full h-auto block"
+        />
+      </div>
+
+      <h1 className="sr-only">Socialism 2026 Conference — Adelaide</h1>
+
+      <div className="flex-1 flex flex-col items-center px-6 py-6 text-center gap-4">
+        <p className="text-brand-cream text-lg sm:text-2xl max-w-3xl leading-relaxed">
+          Join us at Socialism Conference for a jam-packed weekend of radical leftist theory, history, and debate, right here in Adelaide!
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm mb-20">
+        <p className="text-brand-orange font-bold tracking-widest text-sm sm:text-base uppercase">
+          Lower Napier &middot; The University of Adelaide
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mt-2">
           <Link
             href="/program"
-            className="flex-1 text-lg font-extrabold px-6 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-black transition-colors"
+            className="flex-1 text-lg font-extrabold tracking-wider px-6 py-4 border-2 border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-red transition-colors"
           >
             PROGRAM
           </Link>
           <a
-            href="https://www.trybooking.com/events"
+            href="https://www.trybooking.com/events/landing/1576205"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-lg font-extrabold px-6 py-4 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors"
+            className="flex-1 text-lg font-extrabold tracking-wider px-6 py-4 bg-brand-teal text-brand-cream hover:bg-black transition-colors"
           >
             TICKETS
           </a>
         </div>
 
-        <div className="flex gap-6">
+        <div className="flex gap-6 mt-6 text-brand-cream">
           {SOCIAL_LINKS.map(({ href, label, Icon }) => (
             <a
               key={label}
@@ -122,7 +148,7 @@ export default async function HomePage() {
             </a>
           ))}
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }

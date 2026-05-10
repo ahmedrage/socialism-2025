@@ -1,6 +1,6 @@
 interface DaySectionProps {
   day: string;
-  location: string;
+  location?: string;
 }
 
 export function DaySection({ day, location }: DaySectionProps) {
@@ -9,9 +9,11 @@ export function DaySection({ day, location }: DaySectionProps) {
       <div className="text-5xl sm:text-7xl font-black tracking-widest py-3">
         {day}
       </div>
-      <div className="text-lg sm:text-xl text-gray-400 pl-1">
-        {location}
-      </div>
+      {location && (
+        <div className="text-lg sm:text-xl text-brand-cream/70 pl-1">
+          {location}
+        </div>
+      )}
     </div>
   );
 }

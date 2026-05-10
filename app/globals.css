@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* Socialism 2026 brand palette */
+@theme {
+  /* Primary */
+  --color-brand-red: #bc1d18;
+  --color-brand-red-dark: #7a120e;
+  --color-brand-teal: #057b92;
+
+  /* Secondary */
+  --color-brand-orange: #fdc583;
+  --color-brand-cream: #fae1cb;
+  --color-brand-pink: #e194de;
+  --color-brand-brown: #cc886b;
+  --color-brand-mint: #4ee5a3;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -43,3 +43,6 @@ next-env.d.ts
 # Claude Code session/worktree artifacts
 .claude/
 .clone/
+
+# Private notes (planning content from Google Docs etc.)
+.notes/

@@ -44,8 +44,8 @@ const SOCIAL_LINKS = [
 
 export function NavBar() {
   return (
-    <nav className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-      <Link href="/" className="text-xl font-black tracking-widest hover:opacity-75 transition-opacity">
+    <nav className="flex items-center justify-between px-4 py-3 bg-brand-teal text-brand-cream shadow-[0_6px_20px_rgba(0,0,0,0.45)] relative z-10">
+      <Link href="/" className="text-xl font-black tracking-widest hover:text-brand-orange transition-colors">
         SOCIALISM 2026
       </Link>
 
@@ -57,7 +57,7 @@ export function NavBar() {
           PROGRAM
         </Link>
         <a
-          href="https://www.trybooking.com/events"
+          href="https://www.trybooking.com/events/landing/1576205"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm font-bold tracking-wider hover:opacity-75 transition-opacity"
