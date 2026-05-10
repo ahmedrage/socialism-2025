@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Socialism 2025 — Adelaide",
-  description: "The 2025 Adelaide Socialism Conference",
+  title: "Socialism 2026 — Adelaide",
+  description: "The 2026 Adelaide Socialism Conference",
 };
 
 export default function RootLayout({
