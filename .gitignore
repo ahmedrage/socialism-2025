@@ -46,3 +46,5 @@ next-env.d.ts
 
 # Private notes (planning content from Google Docs etc.)
 .notes/
+
+.vercel

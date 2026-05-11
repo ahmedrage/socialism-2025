@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 function FacebookIcon() {
@@ -45,8 +46,15 @@ const SOCIAL_LINKS = [
 export function NavBar() {
   return (
     <nav className="flex items-center justify-between px-4 py-3 bg-brand-teal text-brand-cream shadow-[0_6px_20px_rgba(0,0,0,0.45)] relative z-10">
-      <Link href="/" className="text-xl font-black tracking-widest hover:text-brand-orange transition-colors">
-        SOCIALISM 2026
+      <Link href="/" className="block hover:opacity-75 transition-opacity" aria-label="Socialism 2026 home">
+        <Image
+          src="/images/socialism-logo.png"
+          alt="Socialism 2026"
+          width={3268}
+          height={745}
+          priority
+          className="h-8 sm:h-10 w-auto"
+        />
       </Link>
 
       <div className="flex items-center gap-4 sm:gap-6">
