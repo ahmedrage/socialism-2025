@@ -82,7 +82,7 @@ export default async function HomePage() {
             href="https://www.trybooking.com/events/landing/1576205"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl sm:text-2xl font-extrabold tracking-wider px-10 py-4 bg-brand-teal text-brand-cream hover:bg-black transition-colors"
+            className="text-xl sm:text-2xl font-extrabold tracking-wider px-10 py-4 bg-brand-teal text-brand-cream hover:bg-black active:bg-black active:scale-95 transition-all touch-manipulation"
           >
             GET TICKETS NOW
           </a>
@@ -120,7 +120,7 @@ export default async function HomePage() {
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mt-2">
           <Link
             href="/program"
-            className="flex-1 text-lg font-extrabold tracking-wider px-6 py-4 border-2 border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-red transition-colors"
+            className="flex-1 text-lg font-extrabold tracking-wider px-6 py-4 border-2 border-brand-cream text-brand-cream hover:bg-brand-cream hover:text-brand-red active:bg-brand-cream active:text-brand-red active:scale-95 transition-all touch-manipulation"
           >
             PROGRAM
           </Link>
@@ -128,7 +128,7 @@ export default async function HomePage() {
             href="https://www.trybooking.com/events/landing/1576205"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-lg font-extrabold tracking-wider px-6 py-4 bg-brand-teal text-brand-cream hover:bg-black transition-colors"
+            className="flex-1 text-lg font-extrabold tracking-wider px-6 py-4 bg-brand-teal text-brand-cream hover:bg-black active:bg-black active:scale-95 transition-all touch-manipulation"
           >
             TICKETS
           </a>
@@ -142,7 +142,7 @@ export default async function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="hover:opacity-75 transition-opacity"
+              className="hover:opacity-75 active:opacity-50 active:scale-90 transition-all touch-manipulation"
             >
               <Icon />
             </a>

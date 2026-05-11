@@ -46,7 +46,7 @@ const SOCIAL_LINKS = [
 export function NavBar() {
   return (
     <nav className="flex items-center justify-between px-4 py-3 bg-brand-teal text-brand-cream shadow-[0_6px_20px_rgba(0,0,0,0.45)] relative z-10">
-      <Link href="/" className="block hover:opacity-75 transition-opacity" aria-label="Socialism 2026 home">
+      <Link href="/" className="block hover:opacity-75 active:opacity-50 active:scale-95 transition-all touch-manipulation" aria-label="Socialism 2026 home">
         <Image
           src="/images/socialism-logo.png"
           alt="Socialism 2026"
@@ -60,7 +60,7 @@ export function NavBar() {
       <div className="flex items-center gap-4 sm:gap-6">
         <Link
           href="/program"
-          className="text-sm font-bold tracking-wider hover:opacity-75 transition-opacity"
+          className="text-sm font-bold tracking-wider hover:opacity-75 active:opacity-50 active:scale-95 transition-all touch-manipulation"
         >
           PROGRAM
         </Link>
@@ -68,11 +68,11 @@ export function NavBar() {
           href="https://www.trybooking.com/events/landing/1576205"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-bold tracking-wider hover:opacity-75 transition-opacity"
+          className="text-sm font-bold tracking-wider hover:opacity-75 active:opacity-50 active:scale-95 transition-all touch-manipulation"
         >
           TICKETS
         </a>
-        <div className="flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-3">
           {SOCIAL_LINKS.map(({ href, label, Icon }) => (
             <a
               key={label}
@@ -80,7 +80,7 @@ export function NavBar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="hover:opacity-75 transition-opacity"
+              className="hover:opacity-75 active:opacity-50 active:scale-95 transition-all touch-manipulation"
             >
               <Icon />
             </a>
