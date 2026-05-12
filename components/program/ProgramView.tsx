@@ -5,9 +5,27 @@ import { Talk, DAY_LABELS, TIMESLOT_LABELS } from '@/lib/types';
 import { DaySection } from './DaySection';
 import { TimeSlotRow } from './TimeSlotRow';
 import { TalkModal } from './TalkModal';
+import { PanelCard } from './PanelCard';
 
 interface ProgramViewProps {
   talks: Talk[];
+}
+
+interface SpecialEventProps {
+  time: string;
+  title: string;
+  label: string;
+}
+
+function SpecialEventRow({ time, title, label }: SpecialEventProps) {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="text-3xl sm:text-4xl font-bold text-brand-orange">{time}</div>
+      <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+        <PanelCard title={title} label={label} />
+      </div>
+    </div>
+  );
 }
 
 export function ProgramView({ talks }: ProgramViewProps) {
@@ -23,19 +41,18 @@ export function ProgramView({ talks }: ProgramViewProps) {
       </h1>
 
       {/* Friday opening night */}
-      <section className="flex flex-col gap-3">
+      <section className="flex flex-col gap-8">
         <DaySection day="FRIDAY" />
-        <div className="flex flex-col gap-1 mt-2">
-          <div className="text-3xl sm:text-4xl font-bold text-brand-orange">6:30 PM</div>
-          <p className="text-2xl sm:text-3xl font-bold mt-2">
-            Opening Night: Capitalism is a nightmare, we need socialism
-          </p>
-        </div>
+        <SpecialEventRow
+          time="6:30 PM"
+          label="Opening Night"
+          title="Capitalism is a nightmare, we need socialism"
+        />
       </section>
 
       {/* Saturday */}
       <section className="flex flex-col gap-8">
-        <DaySection day={DAY_LABELS[1]} location="Lower Napier, The University of Adelaide" />
+        <DaySection day={DAY_LABELS[1]} location="Location: TBA" />
         <div className="flex flex-col gap-10">
           {([1, 2, 3, 4] as const).map((slot) => (
             <TimeSlotRow
@@ -45,21 +62,19 @@ export function ProgramView({ talks }: ProgramViewProps) {
               onTalkClick={setModalTalk}
             />
           ))}
-        </div>
 
-        {/* Saturday night all-in panel */}
-        <div className="flex flex-col gap-1 mt-4 border-t-2 border-brand-cream/20 pt-6">
-          <div className="text-3xl sm:text-4xl font-bold text-brand-orange">7:00 PM</div>
-          <p className="text-sm uppercase tracking-widest text-brand-orange/80 mt-1">All-In Panel</p>
-          <p className="text-2xl sm:text-3xl font-bold mt-2">
-            Fighting for a Free Palestine
-          </p>
+          {/* Saturday night all-in panel */}
+          <SpecialEventRow
+            time="7:00 PM"
+            label="All-In Panel"
+            title="Fighting for a Free Palestine"
+          />
         </div>
       </section>
 
       {/* Sunday */}
       <section className="flex flex-col gap-8">
-        <DaySection day={DAY_LABELS[2]} location="Lower Napier, The University of Adelaide" />
+        <DaySection day={DAY_LABELS[2]} location="Location: TBA" />
         <div className="flex flex-col gap-10">
           {/* Morning sessions */}
           {([1, 2] as const).map((slot) => (
@@ -72,13 +87,11 @@ export function ProgramView({ talks }: ProgramViewProps) {
           ))}
 
           {/* Lunchtime council workshop */}
-          <div className="flex flex-col gap-1 border-y-2 border-brand-cream/20 py-6">
-            <div className="text-3xl sm:text-4xl font-bold text-brand-orange">1:00 PM</div>
-            <p className="text-sm uppercase tracking-widest text-brand-orange/80 mt-1">Lunchtime Workshop</p>
-            <p className="text-2xl sm:text-3xl font-bold mt-2">
-              How to get involved in the council election
-            </p>
-          </div>
+          <SpecialEventRow
+            time="1:00 PM"
+            label="Lunchtime Workshop"
+            title="How to get involved in the council election"
+          />
 
           {/* Afternoon sessions */}
           {([3, 4] as const).map((slot) => (
@@ -93,14 +106,13 @@ export function ProgramView({ talks }: ProgramViewProps) {
       </section>
 
       {/* Sunday closing night */}
-      <section className="flex flex-col gap-3">
+      <section className="flex flex-col gap-8">
         <DaySection day="SUNDAY" />
-        <div className="flex flex-col gap-1 mt-2">
-          <div className="text-3xl sm:text-4xl font-bold text-brand-orange">6:30 PM</div>
-          <p className="text-2xl sm:text-3xl font-bold mt-2">
-            Closing Night: The Fight for Socialism Today
-          </p>
-        </div>
+        <SpecialEventRow
+          time="6:30 PM"
+          label="Closing Night"
+          title="The Fight for Socialism Today"
+        />
       </section>
 
       {modalTalk && (

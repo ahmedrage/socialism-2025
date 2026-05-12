@@ -22,7 +22,6 @@ export function TalkCard({ talk, onClick }: TalkCardProps) {
       </div>
       <div className="p-4 flex flex-col gap-1">
         <p className="text-base font-bold leading-snug text-brand-cream">{talk.title}</p>
-        <p className="text-sm text-brand-orange">{talk.speaker}</p>
       </div>
     </button>
   );

@@ -12,6 +12,7 @@ export interface Talk {
   day: 1 | 2; // 1 = Saturday, 2 = Sunday
   timeslot: 1 | 2 | 3 | 4; // 1 = 10AM, 2 = 12PM, 3 = 2:30PM, 4 = 4:30PM
   readings: Reading[] | null;
+  show_speaker: boolean;
   created_at: string;
 }
 

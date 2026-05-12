@@ -19,6 +19,7 @@ const EMPTY_FORM = {
   timeslot: 1 as 1 | 2 | 3 | 4,
   description: '',
   readings: [{ text: '', link: '' }] as Reading[],
+  show_speaker: false,
 };
 
 export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormProps) {
@@ -41,6 +42,7 @@ export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormPro
           editingTalk.readings && editingTalk.readings.length > 0
             ? editingTalk.readings
             : [{ text: '', link: '' }],
+        show_speaker: editingTalk.show_speaker ?? false,
       });
     } else {
       setForm(EMPTY_FORM);
@@ -85,6 +87,7 @@ export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormPro
       timeslot: form.timeslot,
       description: form.description || null,
       readings: form.readings.filter((r) => r.text || r.link),
+      show_speaker: form.show_speaker,
     };
 
     let err;
@@ -143,6 +146,15 @@ export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormPro
               className={inputClass}
               placeholder="Speaker name"
             />
+            <label className="flex items-center gap-2 mt-2 text-sm text-gray-300 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={form.show_speaker}
+                onChange={(e) => setForm({ ...form, show_speaker: e.target.checked })}
+                className="w-4 h-4"
+              />
+              Show speaker on the public talk page
+            </label>
           </div>
           <div>
             <label className={labelClass}>Image URL</label>

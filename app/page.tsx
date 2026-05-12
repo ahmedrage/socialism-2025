@@ -76,7 +76,7 @@ export default async function HomePage() {
             Details &amp; Program Coming Soon
           </p>
           <p className="text-brand-orange font-bold tracking-widest text-sm sm:text-base uppercase">
-            Lower Napier &middot; The University of Adelaide
+            Location: TBA
           </p>
           <a
             href="https://www.trybooking.com/events/landing/1576205"
@@ -114,7 +114,7 @@ export default async function HomePage() {
         </p>
 
         <p className="text-brand-orange font-bold tracking-widest text-sm sm:text-base uppercase">
-          Lower Napier &middot; The University of Adelaide
+          Location: TBA
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mt-2">

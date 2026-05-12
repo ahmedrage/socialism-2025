@@ -41,7 +41,9 @@ export function TalkModal({ talk, onClose }: TalkModalProps) {
 
         <div>
           <h2 className="text-2xl sm:text-3xl font-black leading-snug text-brand-cream">{talk.title}</h2>
-          <p className="text-base text-brand-orange mt-1">{talk.speaker}</p>
+          {talk.show_speaker && talk.speaker && (
+            <p className="text-base text-brand-orange mt-1">{talk.speaker}</p>
+          )}
         </div>
 
         <p className="text-base leading-relaxed">{description}</p>
