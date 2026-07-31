@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import { Talk, Reading, TIMESLOT_LABELS } from '@/lib/types';
+import { Talk, Reading, Stream, STREAMS, TIMESLOT_LABELS } from '@/lib/types';
 
 interface TalkFormProps {
   editingTalk: Talk | null;
@@ -20,6 +20,7 @@ const EMPTY_FORM = {
   description: '',
   readings: [{ text: '', link: '' }] as Reading[],
   show_speaker: false,
+  streams: [] as Stream[],
 };
 
 export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormProps) {
@@ -43,12 +44,22 @@ export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormPro
             ? editingTalk.readings
             : [{ text: '', link: '' }],
         show_speaker: editingTalk.show_speaker ?? false,
+        streams: editingTalk.streams ?? [],
       });
     } else {
       setForm(EMPTY_FORM);
     }
     setError(null);
   }, [editingTalk]);
+
+  function toggleStream(stream: Stream) {
+    setForm((prev) => ({
+      ...prev,
+      streams: prev.streams.includes(stream)
+        ? prev.streams.filter((s) => s !== stream)
+        : [...prev.streams, stream],
+    }));
+  }
 
   function updateReading(index: number, field: keyof Reading, value: string) {
     setForm((prev) => {
@@ -88,6 +99,7 @@ export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormPro
       description: form.description || null,
       readings: form.readings.filter((r) => r.text || r.link),
       show_speaker: form.show_speaker,
+      streams: form.streams,
     };
 
     let err;
@@ -197,6 +209,28 @@ export default function TalkForm({ editingTalk, onSaved, onCancel }: TalkFormPro
                 </option>
               ))}
             </select>
+          </div>
+          <div>
+            <label className={labelClass}>Streams</label>
+            <div className="flex flex-col gap-1.5 px-3 py-2 bg-gray-800 border border-gray-700 rounded">
+              {STREAMS.map((stream) => (
+                <label
+                  key={stream}
+                  className="flex items-center gap-2 text-sm text-gray-300 cursor-pointer select-none"
+                >
+                  <input
+                    type="checkbox"
+                    checked={form.streams.includes(stream)}
+                    onChange={() => toggleStream(stream)}
+                    className="w-4 h-4"
+                  />
+                  {stream}
+                </label>
+              ))}
+            </div>
+            <p className="text-xs text-gray-500 mt-1">
+              Leave all unchecked if the talk isn&apos;t part of a stream.
+            </p>
           </div>
           <div className="md:col-span-2">
             <label className={labelClass}>Description</label>

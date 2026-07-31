@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Talk } from '@/lib/types';
+import { StreamBadge } from './StreamBadge';
 
 interface TalkCardProps {
   talk: Talk;
@@ -7,6 +8,8 @@ interface TalkCardProps {
 }
 
 export function TalkCard({ talk, onClick }: TalkCardProps) {
+  const streams = talk.streams ?? [];
+
   return (
     <button
       onClick={onClick}
@@ -20,7 +23,14 @@ export function TalkCard({ talk, onClick }: TalkCardProps) {
           className="object-cover object-center"
         />
       </div>
-      <div className="p-4 flex flex-col gap-1">
+      <div className="p-4 flex flex-col gap-2">
+        {streams.length > 0 && (
+          <div className="flex flex-wrap gap-1">
+            {streams.map((stream) => (
+              <StreamBadge key={stream} stream={stream} />
+            ))}
+          </div>
+        )}
         <p className="text-base font-bold leading-snug text-brand-cream">{talk.title}</p>
       </div>
     </button>

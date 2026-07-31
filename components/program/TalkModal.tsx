@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Talk } from '@/lib/types';
+import { StreamBadge } from './StreamBadge';
 
 interface TalkModalProps {
   talk: Talk;
@@ -11,6 +12,7 @@ interface TalkModalProps {
 export function TalkModal({ talk, onClose }: TalkModalProps) {
   const description = talk.description || 'Session Description Coming Soon';
   const readings = talk.readings ?? [];
+  const streams = talk.streams ?? [];
 
   return (
     <div
@@ -39,7 +41,14 @@ export function TalkModal({ talk, onClose }: TalkModalProps) {
           />
         </div>
 
-        <div>
+        <div className="flex flex-col gap-2">
+          {streams.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {streams.map((stream) => (
+                <StreamBadge key={stream} stream={stream} />
+              ))}
+            </div>
+          )}
           <h2 className="text-2xl sm:text-3xl font-black leading-snug text-brand-cream">{talk.title}</h2>
           {talk.show_speaker && talk.speaker && (
             <p className="text-base text-brand-orange mt-1">{talk.speaker}</p>

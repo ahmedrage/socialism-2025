@@ -47,6 +47,7 @@ export default function TalkList({ talks, onEdit, onDelete }: TalkListProps) {
               <th className="px-4 py-2 font-medium">Speaker</th>
               <th className="px-4 py-2 font-medium">Day</th>
               <th className="px-4 py-2 font-medium">Time</th>
+              <th className="px-4 py-2 font-medium">Stream</th>
               <th className="px-4 py-2 font-medium">Actions</th>
             </tr>
           </thead>
@@ -63,6 +64,13 @@ export default function TalkList({ talks, onEdit, onDelete }: TalkListProps) {
                 </td>
                 <td className="px-4 py-3 text-gray-300">
                   {TIMESLOT_LABELS[talk.timeslot]}
+                </td>
+                <td className="px-4 py-3 text-gray-300">
+                  {talk.streams?.length ? (
+                    talk.streams.join(', ')
+                  ) : (
+                    <span className="text-gray-600">—</span>
+                  )}
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex gap-2">
