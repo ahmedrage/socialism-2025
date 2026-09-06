@@ -24,14 +24,15 @@ interface SpecialEventProps {
   time: string;
   title: string;
   label: string;
+  image?: string;
 }
 
-function SpecialEventRow({ time, title, label }: SpecialEventProps) {
+function SpecialEventRow({ time, title, label, image }: SpecialEventProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="text-3xl sm:text-4xl font-bold text-brand-orange">{time}</div>
       <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-        <PanelCard title={title} label={label} />
+        <PanelCard title={title} label={label} image={image} />
       </div>
     </div>
   );
@@ -134,6 +135,7 @@ export function ProgramView({ talks }: ProgramViewProps) {
             time="6:30 PM"
             label="Opening Night"
             title="Building a Socialist Fightback to the Far-Right Insurgency in Australia"
+            image="/images/opening-night.webp"
           />
         </section>
       )}
@@ -143,7 +145,21 @@ export function ProgramView({ talks }: ProgramViewProps) {
         <section className="flex flex-col gap-8">
           <DaySection day={DAY_LABELS[1]} location={CONFERENCE_LOCATION} />
           <div className="flex flex-col gap-10">
-            {renderSlots(1, [1, 2, 3, 4] as const)}
+            {/* Morning sessions */}
+            {renderSlots(1, [1, 2] as const)}
+
+            {/* Lunchtime high school meet-up */}
+            {!isFiltering && (
+              <SpecialEventRow
+                time="1:00 PM"
+                label="Lunchtime Meet-Up"
+                title="High School Anti-Capitalists Meet Up"
+                image="/images/hs-anticapitalists-meetup.webp"
+              />
+            )}
+
+            {/* Afternoon sessions */}
+            {renderSlots(1, [3, 4] as const)}
 
             {/* Saturday night all-in panel */}
             {!isFiltering && (
@@ -165,12 +181,13 @@ export function ProgramView({ talks }: ProgramViewProps) {
             {/* Morning sessions */}
             {renderSlots(2, [1, 2] as const)}
 
-            {/* Lunchtime council workshop */}
+            {/* Lunchtime SA Socialists workshop */}
             {!isFiltering && (
               <SpecialEventRow
                 time="1:00 PM"
                 label="Lunchtime Workshop"
-                title="How to get involved in the council election"
+                title="SA Socialists: How to get involved with the Victorian State Election"
+                image="/images/sa-socialists-meetup.webp"
               />
             )}
 
@@ -188,6 +205,7 @@ export function ProgramView({ talks }: ProgramViewProps) {
             time="6:30 PM"
             label="Closing Night"
             title="The Fight for Socialism Today"
+            image="/images/closing-night.webp"
           />
         </section>
       )}
