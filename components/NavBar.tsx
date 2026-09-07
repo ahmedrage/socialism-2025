@@ -48,11 +48,13 @@ export function NavBar() {
     <nav className="flex items-center justify-between px-4 py-3 bg-brand-teal text-brand-cream shadow-[0_6px_20px_rgba(0,0,0,0.45)] relative z-10">
       <Link href="/" className="block hover:opacity-75 active:opacity-50 active:scale-95 transition-all touch-manipulation" aria-label="Socialism 2026 home">
         <Image
-          src="/images/socialism-logo.png"
+          src="/images/socialism-logo.webp"
           alt="Socialism 2026"
-          width={3268}
-          height={745}
+          width={800}
+          height={182}
           priority
+          // Pre-sized WebP well beyond the ~40px it renders at.
+          unoptimized
           className="h-8 sm:h-10 w-auto"
         />
       </Link>

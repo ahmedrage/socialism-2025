@@ -17,9 +17,10 @@ export function TalkCard({ talk, onClick }: TalkCardProps) {
     >
       <div className="w-full h-44 relative bg-brand-red">
         <Image
-          src={talk.image_url || '/images/hero-banner.png'}
+          src={talk.image_url || '/images/hero-banner.webp'}
           alt={talk.title}
           fill
+          sizes="(max-width: 640px) 100vw, 288px"
           className="object-cover object-center"
         />
       </div>

@@ -11,9 +11,11 @@ export function PanelCard({ title, label, image }: PanelCardProps) {
     <div className="flex flex-col text-left w-full sm:w-72 shrink-0 overflow-hidden bg-black/30 border-2 border-brand-cream/20">
       <div className="w-full h-44 relative bg-brand-red">
         <Image
-          src={image || '/images/hero-banner.png'}
+          src={image || '/images/hero-banner.webp'}
           alt={title}
           fill
+          // Already WebP at the size the card needs — optimizing buys nothing.
+          unoptimized
           className="object-cover object-center"
         />
       </div>

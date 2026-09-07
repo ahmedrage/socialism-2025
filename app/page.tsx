@@ -60,11 +60,13 @@ export default async function HomePage() {
       <main className="flex flex-col min-h-screen bg-brand-red-dark">
         <div className="w-full max-w-[900px] self-center mt-3 sm:mt-4 shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
           <Image
-            src="/images/hero-banner.png"
+            src="/images/hero-banner.webp"
             alt="Socialism 2026 Conference — 18-20 September, Adelaide"
-            width={1920}
-            height={1080}
+            width={1800}
+            height={1013}
             priority
+            // Pre-sized WebP for the 900px container — no transform needed.
+            unoptimized
             className="w-full h-auto block"
           />
         </div>
@@ -97,11 +99,13 @@ export default async function HomePage() {
 
       <div className="w-full max-w-[900px] self-center mt-3 sm:mt-4 shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
         <Image
-          src="/images/hero-banner.png"
+          src="/images/hero-banner.webp"
           alt="Socialism 2026 Conference — 18-20 September, Adelaide"
-          width={1920}
-          height={1080}
+          width={1800}
+          height={1013}
           priority
+          // Pre-sized WebP for the 900px container — no transform needed.
+          unoptimized
           className="w-full h-auto block"
         />
       </div>

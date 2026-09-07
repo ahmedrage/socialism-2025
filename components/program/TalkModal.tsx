@@ -34,9 +34,10 @@ export function TalkModal({ talk, onClose }: TalkModalProps) {
 
         <div className="relative w-full h-64 rounded-lg overflow-hidden">
           <Image
-            src={talk.image_url || '/images/hero-banner.png'}
+            src={talk.image_url || '/images/hero-banner.webp'}
             alt={talk.title}
             fill
+            sizes="(max-width: 672px) 100vw, 672px"
             className="object-cover object-center"
           />
         </div>
