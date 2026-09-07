@@ -147,12 +147,13 @@ export function ProgramView({ talks }: ProgramViewProps) {
           <div className="flex flex-col gap-10">
             {renderSlots(1, [1, 2, 3, 4] as const)}
 
-            {/* Saturday night all-in panel */}
+            {/* Saturday night book launch */}
             {!isFiltering && (
               <SpecialEventRow
                 time="7:00 PM"
-                label="All-In Panel"
-                title="Endless War and Genocide in the Middle East, Where to Next for the Palestine Movement?"
+                label="Book Launch"
+                title="From Revolutionary Hopes to Shattered Dreams with Author Duncan Hart"
+                image="/images/book-launch.webp"
               />
             )}
           </div>
