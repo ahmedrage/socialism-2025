@@ -145,21 +145,7 @@ export function ProgramView({ talks }: ProgramViewProps) {
         <section className="flex flex-col gap-8">
           <DaySection day={DAY_LABELS[1]} location={CONFERENCE_LOCATION} />
           <div className="flex flex-col gap-10">
-            {/* Morning sessions */}
-            {renderSlots(1, [1, 2] as const)}
-
-            {/* Lunchtime high school meet-up */}
-            {!isFiltering && (
-              <SpecialEventRow
-                time="1:00 PM"
-                label="Lunchtime Meet-Up"
-                title="High School Anti-Capitalists Meet Up"
-                image="/images/hs-anticapitalists-meetup.webp"
-              />
-            )}
-
-            {/* Afternoon sessions */}
-            {renderSlots(1, [3, 4] as const)}
+            {renderSlots(1, [1, 2, 3, 4] as const)}
 
             {/* Saturday night all-in panel */}
             {!isFiltering && (
