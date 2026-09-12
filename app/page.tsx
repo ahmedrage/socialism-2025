@@ -45,6 +45,20 @@ const SOCIAL_LINKS = [
   },
 ];
 
+function OpeningNightBanner() {
+  return (
+    <div className="w-full max-w-[900px] self-center bg-brand-orange text-brand-red-dark px-4 py-3 text-center flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+      <span className="font-black tracking-widest text-sm sm:text-base uppercase">
+        Opening Night — Fri 6:30PM
+      </span>
+      <span className="hidden sm:inline">·</span>
+      <span className="font-bold text-sm sm:text-base">
+        📍 The Jade, 142-160 Flinders St, Adelaide
+      </span>
+    </div>
+  );
+}
+
 export default async function HomePage() {
   const supabase = await createClient();
   const { data } = await supabase
@@ -72,6 +86,8 @@ export default async function HomePage() {
         </div>
 
         <h1 className="sr-only">Socialism 2026 Conference — Adelaide</h1>
+
+        <OpeningNightBanner />
 
         <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 text-center gap-8">
           <p className="text-brand-cream text-xl sm:text-3xl max-w-xl">
@@ -111,6 +127,8 @@ export default async function HomePage() {
       </div>
 
       <h1 className="sr-only">Socialism 2026 Conference — Adelaide</h1>
+
+      <OpeningNightBanner />
 
       <div className="flex-1 flex flex-col items-center px-6 py-6 text-center gap-4">
         <p className="text-brand-cream text-lg sm:text-2xl max-w-3xl leading-relaxed">

@@ -14,7 +14,8 @@ import { TimeSlotRow } from './TimeSlotRow';
 import { TalkModal } from './TalkModal';
 import { PanelCard } from './PanelCard';
 
-const CONFERENCE_LOCATION = 'Location: Lower Napier, Adelaide University';
+const CONFERENCE_LOCATION = 'Lower Napier, Adelaide University';
+const EVENING_EVENT_LOCATION = 'The Jade, 142-160 Flinders St, Adelaide';
 
 interface ProgramViewProps {
   talks: Talk[];
@@ -130,7 +131,7 @@ export function ProgramView({ talks }: ProgramViewProps) {
       {/* Friday opening night */}
       {!isFiltering && (
         <section className="flex flex-col gap-8">
-          <DaySection day="FRIDAY" />
+          <DaySection day="FRIDAY" location={EVENING_EVENT_LOCATION} />
           <SpecialEventRow
             time="6:30 PM"
             label="Opening Night"
@@ -187,7 +188,7 @@ export function ProgramView({ talks }: ProgramViewProps) {
       {/* Sunday closing night */}
       {!isFiltering && (
         <section className="flex flex-col gap-8">
-          <DaySection day="SUNDAY" />
+          <DaySection day="SUNDAY" location={EVENING_EVENT_LOCATION} />
           <SpecialEventRow
             time="6:30 PM"
             label="Closing Night"
